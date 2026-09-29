@@ -31,6 +31,7 @@ void ProcessNumbers(std::vector<double>& nums)
     if (nums.empty()) return;
     
     std::vector<double> positives;
+    
     for (int i = 0; i < nums.size(); i++)
     {
         if (nums[i] > 0) 

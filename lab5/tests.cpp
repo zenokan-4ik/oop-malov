@@ -3,6 +3,8 @@
 #include "CVector3D.h"
 #include <sstream>
 
+// TODO: Separate: each test_case for each operator
+
 TEST_CASE("Конструкторы и длина", "[CVector3D]")
 {
     CVector3D v1;

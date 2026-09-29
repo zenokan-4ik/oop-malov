@@ -1,27 +1,29 @@
 #include "TVSet.h"
 
-TVSet::TVSet() : isOn(false), channel(0), savedChannel(1) {}
+TVSet::TVSet() : m_isOn(false), m_channel(0), m_savedChannel(1) {}
 
 void TVSet::TurnOn()
 {
-    if (!isOn) {
-        isOn = true;
-        channel = savedChannel;
+    if (!m_isOn) 
+    {
+        m_isOn = true;
+        m_channel = m_savedChannel;
     }
 }
 
 void TVSet::TurnOff()
 {
-    if (isOn) {
-        isOn = false;
-        savedChannel = channel;
-        channel = 0;
+    if (m_isOn) 
+    {
+        m_isOn = false;
+        m_savedChannel = m_channel;
+        m_channel = 0;
     }
 }
 
 bool TVSet::SelectChannel(int channel)
 {
-    if (!isOn)
+    if (!m_isOn)
     {
         return false;
     }
@@ -31,16 +33,16 @@ bool TVSet::SelectChannel(int channel)
         return false;
     }
     
-    this->channel = channel;
+    this->m_channel = channel;
     return true;
 }
 
 bool TVSet::IsOn() const
 {
-    return isOn;
+    return m_isOn;
 }
 
 int TVSet::GetChannel() const
 {
-    return channel;
+    return m_channel;
 }

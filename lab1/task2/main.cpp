@@ -3,17 +3,14 @@
 #include <iostream>
 #include <cstdint>
 
-int count_ones(int16_t num) 
+// TODO: Fix this, incorrect work
+int count_ones(uint8_t num) 
 {
-    uint16_t unum = num; 
-    std::string binary_str = "";
     int count = 0;
 
-    for (int i = 15; i >= 0; --i) 
+    for (int i = 7; i >= 0; --i) 
     {
-        int bit = (unum >> i) & 1;
-        
-        binary_str += (bit ? '1' : '0');
+        int bit = (num >> i) & 1;
         
         count += bit;
     }
@@ -31,7 +28,7 @@ int main(int argc, char** argv)
         throw std::runtime_error("Use 'copyfile.exe -h' to get help");
     }
     
-    int16_t num{};
+    uint8_t num{};
     if (argc == 1) 
     {
         std::cout << "Enter byte : ";

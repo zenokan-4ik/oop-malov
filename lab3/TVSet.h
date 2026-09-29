@@ -15,7 +15,7 @@ public:
     int GetChannel() const;
 
 private:
-    bool isOn;
-    int channel;
-    int savedChannel;
+    bool m_isOn;
+    int m_channel;
+    int m_savedChannel;
 };

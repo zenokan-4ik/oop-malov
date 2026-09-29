@@ -19,16 +19,6 @@ std::string InputManager::GetLine(std::ifstream& in)
     return s;
 }
 
-// std::vector<std::string> InputManager::GetParsedLine(std::istream& in)
-// {
-    
-// }
-
-// std::vector<std::string> InputManager::GetParsedLine(std::ifstream& in)
-// {
-    
-// }
-
 bool InputManager::IsEmpty(const std::string s)
 {
     bool result = s.empty();

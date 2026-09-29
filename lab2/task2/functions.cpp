@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 
 std::string TrimBlanks(std::string const& str) 
 {
@@ -6,22 +7,16 @@ std::string TrimBlanks(std::string const& str)
     {
         return "";
     }
-    
-    size_t start = 0;
-    while (start < str.size() && str[start] == ' ') 
-    {
-        start++;
-    }
-    
-    if (start == str.size()) 
+
+    size_t start{};
+    size_t end{};
+
+    start = str.find_first_not_of(" ");
+    end = str.find_last_not_of(" ");
+
+    if(start == std::string::npos || end == std::string::npos)
     {
         return "";
-    }
-    
-    size_t end = str.size() - 1;
-    while (end > start && str[end] == ' ') 
-    {
-        end--;
     }
     
     return str.substr(start, end - start + 1);
