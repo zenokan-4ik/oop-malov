@@ -1,18 +1,13 @@
 #include <string>
-#include <fstream>
 #include <iostream>
 #include <cstdint>
 
-// TODO: Fix this, incorrect work
 int count_ones(uint8_t num) 
 {
     int count = 0;
-
     for (int i = 7; i >= 0; --i) 
     {
-        int bit = (num >> i) & 1;
-        
-        count += bit;
+        count += (num >> i) & 1;
     }
     return count;
 }
@@ -21,22 +16,31 @@ int main(int argc, char** argv)
 {
     if (argc > 1 && std::string(argv[1]) == "-h")
     {
-        std::cout << "Use via cmd: calcbits.exe <byte>" << std::endl << "Use via stdin: calcbits.exe. Next line is <byte>";
-    }
-    else if (argc > 2)
-    {
-        throw std::runtime_error("Use 'copyfile.exe -h' to get help");
+        std::cout << "Usage: calcbits.exe [byte]\n";
+        std::cout << "Byte must be a number between 0 and 255." << std::endl;
+        return 0;
     }
     
-    uint8_t num{};
+    int temp_num = 0;
+    
     if (argc == 1) 
     {
-        std::cout << "Enter byte : ";
-        std::cin >> num;
-    } else
+        std::cout << "Enter byte (0-255): ";
+        std::cin >> temp_num;
+    } 
+    else 
     {
-        num = std::stoi(argv[1]);
+        temp_num = std::stoi(argv[1]);
     }
-    std::cout << count_ones(num);
+
+    if (temp_num < 0 || temp_num > 255) 
+    {
+        std::cerr << "Error: Value must be between 0 and 255." << std::endl;
+        return 1;
+    }
+
+    uint8_t num = static_cast<uint8_t>(temp_num);
+    std::cout << count_ones(num) << std::endl;
+    
     return 0;    
 }
