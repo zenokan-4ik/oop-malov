@@ -15,7 +15,7 @@ double CLineSegment::GetPerimeter() const
 
 std::string CLineSegment::ToString() const
 {
-    return std::format(CConst::LINE_FORMAT, this->m_startPoint.ToString(), this->m_endPoint.ToString(), this->GetPerimeter());
+    return std::format(CConst::LINE_FORMAT, this->m_startPoint.ToString(), this->m_endPoint.ToString(), this->GetPerimeter(), this->GetOutlineColor());
 }
 
 CPoint CLineSegment::GetStartPoint() const

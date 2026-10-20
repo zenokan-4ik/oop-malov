@@ -15,7 +15,7 @@ double CCircle::GetPerimeter() const
 
 std::string CCircle::ToString() const
 {
-    return std::format(CConst::CIRCLE_FORMAT, this->m_center.ToString(), this->m_radius, this->GetArea(), this->GetPerimeter());
+    return std::format(CConst::CIRCLE_FORMAT, this->m_center.ToString(), this->m_radius, this->GetArea(), this->GetPerimeter(), this->GetOutlineColor(), this->GetFillColor());
 }
 
 CPoint CCircle::GetCenter() const

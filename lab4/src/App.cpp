@@ -39,24 +39,38 @@ void App::Run()
         return;
     }
 
-    IShape* maxAreaShape = nullptr;
-    IShape* minPerimeterShape = nullptr;
-
-    for (const auto& shape : shapes)
-    {
-        if (!maxAreaShape || shape->GetArea() > maxAreaShape->GetArea())
-        {
-            maxAreaShape = shape.get();
-        }
-        if (!minPerimeterShape || shape->GetPerimeter() < minPerimeterShape->GetPerimeter())
-        {
-            minPerimeterShape = shape.get();
-        }
-    }
+    IShape* maxAreaShape = GetMaxArea(shapes);
+    IShape* minPerimeterShape = GetMaxPerimeter(shapes);
 
     std::cout << "\n--- Shape with the maximum area ---" << std::endl;
     std::cout << maxAreaShape->ToString() << std::endl;
 
     std::cout << "\n--- Shape with the minimum perimeter ---" << std::endl;
     std::cout << minPerimeterShape->ToString() << std::endl;
+}
+
+IShape* App::GetMaxArea(std::vector<std::unique_ptr<IShape>>& shapes)
+{
+    IShape* maxAreaShape = nullptr;
+    for(const auto& shape : shapes)
+    {
+        if(!maxAreaShape || shape->GetArea() > maxAreaShape->GetArea())
+        {
+            maxAreaShape = shape.get();
+        }
+    }
+    return maxAreaShape;
+}
+
+IShape* App::GetMaxPerimeter(std::vector<std::unique_ptr<IShape>>& shapes)
+{
+    IShape* maxPerimeterShape = nullptr;
+    for(const auto& shape : shapes)
+    {
+        if(!maxPerimeterShape || shape->GetArea() > maxPerimeterShape->GetArea())
+        {
+            maxPerimeterShape = shape.get();
+        }
+    }
+    return maxPerimeterShape;
 }

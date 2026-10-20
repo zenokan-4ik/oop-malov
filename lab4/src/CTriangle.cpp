@@ -28,7 +28,7 @@ double CTriangle::GetPerimeter() const
 
 std::string CTriangle::ToString() const
 {
-    return std::format(CConst::TRIANGLE_FORMAT, this->m_vertex1.ToString(), this->m_vertex2.ToString(), this->m_vertex3.ToString(), this->GetArea(), this->GetPerimeter());
+    return std::format(CConst::TRIANGLE_FORMAT, this->m_vertex1.ToString(), this->m_vertex2.ToString(), this->m_vertex3.ToString(), this->GetArea(), this->GetPerimeter(), this->GetOutlineColor(), this->GetFillColor());
 }
 
 CPoint CTriangle::GetVertex1() const

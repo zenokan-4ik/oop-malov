@@ -16,7 +16,7 @@ double CRectangle::GetPerimeter() const
 
 std::string CRectangle::ToString() const
 {
-    return std::format(CConst::RECTANGLE_FORMAT, this->m_height, this->m_width, this->GetArea(), this->GetPerimeter());
+    return std::format(CConst::RECTANGLE_FORMAT, this->m_height, this->m_width, this->GetArea(), this->GetPerimeter(), this->GetOutlineColor(), this->GetFillColor());
 }
 
 CPoint CRectangle::GetLeftTop() const
