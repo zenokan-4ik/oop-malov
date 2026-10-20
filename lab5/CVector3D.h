@@ -1,14 +1,12 @@
 #pragma once
 
 #include <iostream>
-#include <cmath>
 
 class CVector3D
 {
 public:
     double x, y, z;
 
-    // Конструкторы
     CVector3D();
     CVector3D(double x0, double y0, double z0);
 

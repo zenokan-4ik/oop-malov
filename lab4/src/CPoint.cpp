@@ -1,11 +1,13 @@
 #include "../headers/CPoint.hpp"
 
+#include "../headers/CConst.hpp"
+
 #include <string>
 #include <cmath>
 
 std::string CPoint::ToString() const
 {
-    return std::format("({}, {})", this->x, this->y);
+    return std::format(CConst::POINT_FORMAT, this->x, this->y);
 };
 
 double CPoint::GetDistance(const CPoint& other) const

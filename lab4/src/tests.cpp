@@ -32,7 +32,7 @@ TEST_CASE("CPoint: ToString", "[CPoint]")
 TEST_CASE("CCircle: Конструктор, геттеры и методы", "[CCircle]")
 {
     CPoint center(1.0, 2.0);
-    CCircle circle(0xFF0000, 0x00FF00, center, 5.0);
+    CCircle circle(0xff0000, 0x00ff00, center, 5.0);
     
     REQUIRE(circle.GetRadius() == Approx(5.0));
     REQUIRE(circle.GetCenter().x == Approx(1.0));
@@ -47,7 +47,7 @@ TEST_CASE("CLineSegment: Конструктор, геттеры и методы"
     CPoint start(0.0, 0.0);
     CPoint end(3.0, 4.0);
     
-    CLineSegment segment(0xFF0000, start, end);
+    CLineSegment segment(0xff0000, start, end);
     
     REQUIRE(segment.GetStartPoint().x == Approx(0.0));
     REQUIRE(segment.GetEndPoint().y == Approx(4.0));
@@ -61,7 +61,7 @@ TEST_CASE("CRectangle: Конструктор, геттеры и методы", 
     CPoint leftTop(0.0, 0.0);
     CPoint rightBottom(4.0, 3.0);
     
-    CRectangle rect(0xFF0000, 0x00FF00, leftTop, rightBottom, 3.0, 4.0);
+    CRectangle rect(0xff0000, 0x00ff00, leftTop, rightBottom, 3.0, 4.0);
     
     REQUIRE(rect.GetWidth() == Approx(4.0));
     REQUIRE(rect.GetHeight() == Approx(3.0));
@@ -78,7 +78,7 @@ TEST_CASE("CTriangle: Конструктор, геттеры и методы", "
     CPoint v2(4.0, 0.0);
     CPoint v3(0.0, 3.0);
     
-    CTriangle triangle(0xFF0000, 0x00FF00, v1, v2, v3);
+    CTriangle triangle(0xff0000, 0x00ff00, v1, v2, v3);
     
     REQUIRE(triangle.GetVertex1().x == Approx(0.0));
     REQUIRE(triangle.GetVertex2().x == Approx(4.0));
@@ -93,7 +93,7 @@ TEST_CASE("CParser: Корректный парсинг фигур", "[CParser]"
     std::vector<std::unique_ptr<IShape>> shapes;
     CParser parser;
     
-    parser.Parse("circle 0xff0000 0x00ff00 1.0 2.0 5.0", shapes);
+    parser.Parse("circle ff0000 00ff00 1.0 2.0 5.0", shapes);
     REQUIRE(shapes.size() == 1);
     
     CCircle* circle = dynamic_cast<CCircle*>(shapes[0].get());
@@ -101,7 +101,7 @@ TEST_CASE("CParser: Корректный парсинг фигур", "[CParser]"
     REQUIRE(circle->GetRadius() == Approx(5.0));
     REQUIRE(circle->GetCenter().x == Approx(1.0));
 
-    parser.Parse("rectangle 0x000000 0xffffff 0 0 4 3", shapes);
+    parser.Parse("rectangle 000000 ffffff 0 0 4 3", shapes);
     REQUIRE(shapes.size() == 2);
     
     CRectangle* rect = dynamic_cast<CRectangle*>(shapes[1].get());
@@ -109,14 +109,14 @@ TEST_CASE("CParser: Корректный парсинг фигур", "[CParser]"
     REQUIRE(rect->GetWidth() == Approx(4.0));
     REQUIRE(rect->GetHeight() == Approx(3.0));
 
-    parser.Parse("triangle 0x123456 0x654321 0 0 4 0 0 3", shapes);
+    parser.Parse("triangle 123456 654321 0 0 4 0 0 3", shapes);
     REQUIRE(shapes.size() == 3);
     
     CTriangle* triangle = dynamic_cast<CTriangle*>(shapes[2].get());
     REQUIRE(triangle != nullptr);
     REQUIRE(triangle->GetArea() == Approx(6.0));
 
-    parser.Parse("line_segment 0xff0000 0 0 3 4", shapes);
+    parser.Parse("line_segment ff0000 0 0 3 4", shapes);
     REQUIRE(shapes.size() == 4);
     
     CLineSegment* segment = dynamic_cast<CLineSegment*>(shapes[3].get());

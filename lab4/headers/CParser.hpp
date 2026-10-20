@@ -7,7 +7,6 @@
 #include "../headers/IShape.hpp"
 #include <vector>
 #include <memory>
-#include <iostream>
 #include <sstream>
 
 class CParser

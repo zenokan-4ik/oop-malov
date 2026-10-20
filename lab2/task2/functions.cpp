@@ -1,5 +1,4 @@
 #include <string>
-#include <algorithm>
 
 std::string TrimBlanks(std::string const& str) 
 {

@@ -1,7 +1,6 @@
 #include "../headers/CRectangle.hpp"
 
 #include "../headers/CConst.hpp"
-#include <cmath>
 #include <format>
 
 double CRectangle::GetArea() const

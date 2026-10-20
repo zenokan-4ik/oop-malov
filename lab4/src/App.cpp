@@ -42,10 +42,10 @@ void App::Run()
     IShape* maxAreaShape = GetMaxArea(shapes);
     IShape* minPerimeterShape = GetMaxPerimeter(shapes);
 
-    std::cout << "\n--- Shape with the maximum area ---" << std::endl;
+    std::cout << "\n=== Shape with the maximum area ===" << std::endl;
     std::cout << maxAreaShape->ToString() << std::endl;
 
-    std::cout << "\n--- Shape with the minimum perimeter ---" << std::endl;
+    std::cout << "\n=== Shape with the minimum perimeter ===" << std::endl;
     std::cout << minPerimeterShape->ToString() << std::endl;
 }
 
